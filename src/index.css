@@ -1,0 +1,201 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --gold-primary: #f5c042;
+    --gold-light: #ffea79;
+    --gold-dark: #b8860b;
+    --gold-accent: #e5a910;
+    --dark-bg: #07070a;
+    --dark-surface: #0e1017;
+    --dark-card: rgba(15, 17, 24, 0.85);
+  }
+
+  * {
+    border-color: rgba(245, 192, 66, 0.15);
+  }
+
+  body {
+    background-color: #07070a;
+    color: #f1f5f9;
+    font-family: 'Outfit', sans-serif;
+    overflow-x: hidden;
+  }
+
+  /* Custom Golden Scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #090a0f;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg, #f5c042, #b8860b);
+    border-radius: 4px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #ffea79;
+  }
+}
+
+.font-crown {
+  font-family: 'Cinzel', serif;
+}
+
+/* Luxury Metallic Gold Text */
+.text-gold-gradient {
+  background: linear-gradient(135deg, #fff2a3 0%, #f5c042 35%, #e09d15 70%, #fff7cc 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.text-gold-metallic {
+  background: linear-gradient(180deg, #ffffff 0%, #ffeaa7 30%, #e5a910 70%, #996515 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Gold Glowing Borders & Shadows */
+.gold-glow {
+  box-shadow: 0 0 25px rgba(245, 192, 66, 0.25);
+}
+
+.gold-glow-lg {
+  box-shadow: 0 0 45px rgba(245, 192, 66, 0.35);
+}
+
+.gold-border {
+  border: 1px solid rgba(245, 192, 66, 0.3);
+}
+
+.gold-border-glow {
+  border: 1px solid rgba(245, 192, 66, 0.5);
+  box-shadow: 0 0 15px rgba(245, 192, 66, 0.2);
+}
+
+/* Glassmorphism with Dark & Gold Tones */
+.glass-panel {
+  background: rgba(14, 16, 23, 0.78);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(245, 192, 66, 0.18);
+}
+
+.glass-panel-hover:hover {
+  background: rgba(22, 25, 36, 0.88);
+  border-color: rgba(245, 192, 66, 0.45);
+  box-shadow: 0 10px 30px -10px rgba(245, 192, 66, 0.25);
+}
+
+/* Shimmer animation on buttons */
+@keyframes goldShimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.btn-gold-shimmer {
+  background: linear-gradient(90deg, #e5a910 0%, #fff2a3 50%, #e5a910 100%);
+  background-size: 200% auto;
+  animation: goldShimmer 3.5s linear infinite;
+}
+
+@keyframes pulseCrown {
+  0%, 100% {
+    transform: scale(1) translateY(0);
+    filter: drop-shadow(0 0 15px rgba(245, 192, 66, 0.4));
+  }
+  50% {
+    transform: scale(1.03) translateY(-4px);
+    filter: drop-shadow(0 0 30px rgba(245, 192, 66, 0.8));
+  }
+}
+
+.crown-float {
+  animation: pulseCrown 4s ease-in-out infinite;
+}
+
+/* ====== Animaciones de interfaz ====== */
+
+/* Resaltado de términos buscados en las normativas */
+mark.search-hit {
+  background: linear-gradient(135deg, rgba(245, 192, 66, 0.35), rgba(245, 192, 66, 0.15));
+  color: #ffeaa7;
+  border-radius: 4px;
+  padding: 0 3px;
+  font-weight: 600;
+  box-shadow: 0 0 12px rgba(245, 192, 66, 0.25);
+}
+
+/* Ocultar scrollbar horizontal en chips de categorías */
+.scrollbar-none {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+.scrollbar-none::-webkit-scrollbar {
+  display: none;
+}
+
+/* Barra de progreso de lectura con brillo animado */
+.progress-shine {
+  position: relative;
+  overflow: hidden;
+}
+.progress-shine::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.55), transparent);
+  transform: translateX(-100%);
+  animation: progressSweep 2.2s ease-in-out infinite;
+}
+@keyframes progressSweep {
+  0% { transform: translateX(-100%); }
+  60%, 100% { transform: translateX(100%); }
+}
+
+/* Punto "en vivo" pulsante para el aviso administrativo */
+@keyframes softPulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.55; transform: scale(1.35); }
+}
+.live-dot {
+  animation: softPulse 1.8s ease-in-out infinite;
+}
+
+/* Flotación suave para chips y badges */
+@keyframes gentleFloat {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-5px); }
+}
+.float-slow {
+  animation: gentleFloat 5s ease-in-out infinite;
+}
+
+/* Resaltado de una tarjeta de norma al saltar desde el índice rápido */
+@keyframes ruleFlash {
+  0%, 100% { box-shadow: 0 0 0 rgba(245, 192, 66, 0); }
+  40% { box-shadow: 0 0 38px rgba(245, 192, 66, 0.6); }
+}
+.rule-flash {
+  animation: ruleFlash 1.2s ease-in-out 2;
+}
+
+/* Destello dorado que cruza las cabeceras destacadas */
+@keyframes goldSweep {
+  0% { transform: translateX(-120%) skewX(-20deg); }
+  100% { transform: translateX(320%) skewX(-20deg); }
+}
+.gold-sweep::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 35%;
+  background: linear-gradient(90deg, transparent, rgba(255, 240, 170, 0.28), transparent);
+  animation: goldSweep 4.5s ease-in-out infinite;
+  pointer-events: none;
+}
