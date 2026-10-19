@@ -31,7 +31,7 @@ const CATEGORY_ORDER: RuleSectionItem['category'][] = [
   'VPD Policía',
   'VFR Bomberos',
   'VMS Médicos',
-  'Ilegales y Bandas'
+  'Ilegales'
 ];
 
 const CHAPTER_INFO: Record<string, { icon: React.ElementType; desc: string }> = {
@@ -39,7 +39,7 @@ const CHAPTER_INFO: Record<string, { icon: React.ElementType; desc: string }> = 
   'VPD Policía': { icon: Shield, desc: 'Leyes, protocolos, radio y disciplina del cuerpo policial.' },
   'VFR Bomberos': { icon: Flame, desc: 'Emergencias, rescates y el código del cuerpo de bomberos.' },
   'VMS Médicos': { icon: HeartPulse, desc: 'Ética médica, triaje y supervivencia en zonas de conflicto.' },
-  'Ilegales y Bandas': { icon: Skull, desc: 'Atracos, límites y reglas del lado oscuro de la ciudad.' }
+  'Ilegales': { icon: Skull, desc: 'Atracos, límites y reglas del lado oscuro de la ciudad.' }
 };
 
 /** Clases estáticas para que Tailwind las genere */
@@ -49,7 +49,7 @@ const CAT_STYLE: Record<string, { chip: string; bar: string; dot: string; badge:
   'VPD Policía': { chip: 'bg-sky-500/15 text-sky-300 border-sky-500/40', bar: 'bg-sky-500', dot: 'bg-sky-400', badge: 'bg-sky-500/15 text-sky-300 border-sky-500/30' },
   'VFR Bomberos': { chip: 'bg-orange-500/15 text-orange-300 border-orange-500/40', bar: 'bg-orange-500', dot: 'bg-orange-400', badge: 'bg-orange-500/15 text-orange-300 border-orange-500/30' },
   'VMS Médicos': { chip: 'bg-emerald-500/15 text-emerald-300 border-emerald-500/40', bar: 'bg-emerald-500', dot: 'bg-emerald-400', badge: 'bg-emerald-500/15 text-emerald-300 border-emerald-500/30' },
-  'Ilegales y Bandas': { chip: 'bg-rose-500/15 text-rose-300 border-rose-500/40', bar: 'bg-rose-500', dot: 'bg-rose-400', badge: 'bg-rose-500/15 text-rose-300 border-rose-500/30' }
+  'Ilegales': { chip: 'bg-rose-500/15 text-rose-300 border-rose-500/40', bar: 'bg-rose-500', dot: 'bg-rose-400', badge: 'bg-rose-500/15 text-rose-300 border-rose-500/30' }
 };
 
 /** Normas estrella: acceso en un clic desde el resumen rápido */
@@ -332,7 +332,7 @@ export const RulesSection: React.FC = () => {
 
         {/* ==================== BARRA FIJA: BUSCADOR + FILTROS + PROGRESO ==================== */}
         <div className="sticky top-[92px] z-30 -mx-4 px-4 sm:-mx-6 sm:px-6 lg:-mx-8 lg:px-8 py-3 mb-6 bg-[#07070a]/92 backdrop-blur-xl border-b border-amber-500/15 shadow-[0_16px_32px_-16px_rgba(0,0,0,0.9)] rounded-b-2xl">
-          <div className="max-w-4xl mx-auto space-y-3">
+          <div className="max-w-6xl mx-auto space-y-3">
             {/* Buscador + acciones */}
             <div className="flex flex-col sm:flex-row gap-2.5">
               <div className="relative flex-1">
@@ -390,7 +390,7 @@ export const RulesSection: React.FC = () => {
             </div>
 
             {/* Categorías con Iconos y Contadores */}
-            <div className="flex items-center gap-2 overflow-x-auto pb-1 scrollbar-none">
+            <div className="flex flex-wrap items-center gap-2 pb-1">
               {['Todas', ...CATEGORY_ORDER].map((cat) => {
                 const meta = CHAPTER_INFO[cat];
                 const Icon = meta ? meta.icon : BookOpen;

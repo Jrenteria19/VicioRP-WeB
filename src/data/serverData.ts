@@ -1,6 +1,6 @@
 export interface RuleSectionItem {
   id: string;
-  category: 'VFR Bomberos' | 'VMS Médicos' | 'Ilegales y Bandas' | 'Conceptos de Rol' | 'Códigos 10' | 'VPD Policía';
+  category: 'VFR Bomberos' | 'VMS Médicos' | 'Ilegales' | 'Conceptos de Rol' | 'Códigos 10' | 'VPD Policía';
   title: string;
   badge?: string;
   badgeType?: 'default' | 'danger' | 'warning' | 'success' | 'info';
@@ -344,7 +344,7 @@ export const ALL_RULES: RuleSectionItem[] = [
   // ==================== 🔪 VICIO RP | REGLAMENTO DE FACCIONES E ILEGALES ====================
   {
     id: "ilegal-general",
-    category: "Ilegales y Bandas",
+    category: "Ilegales",
     title: "Ilegales • 1. Principios Generales y FairPlay",
     badge: "FairPlay Obligatorio",
     badgeType: "warning",
@@ -356,7 +356,7 @@ export const ALL_RULES: RuleSectionItem[] = [
   },
   {
     id: "ilegal-agrupacion",
-    category: "Ilegales y Bandas",
+    category: "Ilegales",
     title: "Ilegales • Límites de Agrupación (Pico de Banda)",
     badge: "Límites Estrictos",
     badgeType: "danger",
@@ -385,7 +385,7 @@ export const ALL_RULES: RuleSectionItem[] = [
   },
   {
     id: "ilegal-armas",
-    category: "Ilegales y Bandas",
+    category: "Ilegales",
     title: "Ilegales • Restricción Territorial de Armamento",
     badge: "Normativa de Calibres",
     badgeType: "danger",
@@ -411,8 +411,50 @@ export const ALL_RULES: RuleSectionItem[] = [
     ]
   },
   {
+    id: "ilegal-cateo-manos",
+    category: "Ilegales",
+    title: "Ilegales • Cateo: Manos Arriba Obligatorio",
+    badge: "Cateo",
+    badgeType: "warning",
+    summary: "Al ser bajado, el jugador debe levantar las manos sí o sí para poder ser cateado.",
+    details: [
+      "Al ser bajado (obligado a descender del vehículo) o reducido durante un acto delictivo, el jugador debe levantar las manos sí o sí para que se le pueda catear.",
+      "El cateo solo es válido cuando la víctima levanta las manos y coopera con la escena; no se puede catear a alguien que no lo haya hecho.",
+      "Si el jugador no levanta las manos, no puede ser cateado y la escena debe resolverse mediante el rol."
+    ],
+    doList: [
+      "✅ Levantar las manos al ser bajado para permitir el cateo.",
+      "✅ Cooperar con la escena de cateo manteniendo el rol en todo momento."
+    ],
+    dontList: [
+      "❌ Catear a un jugador que no ha levantado las manos.",
+      "❌ Negarse a levantar las manos y aun así pretender participar del cateo."
+    ]
+  },
+  {
+    id: "ilegal-arma-normal-cateo",
+    category: "Ilegales",
+    title: "Ilegales • Arma Normal Obligatoria para Cateo",
+    badge: "Armas",
+    badgeType: "danger",
+    summary: "Todo delictivo debe portar un arma normal para poder ser cateado; no se puede usar solamente armas VIP.",
+    details: [
+      "Todo jugador que rolee como delictivo necesita portar un arma normal (no VIP) para que el cateo sea válido.",
+      "No se puede usar únicamente armas VIP para rolear el delito ni para justificar el cateo.",
+      "El arma normal debe estar portada/equipada por el personaje durante la escena delictiva."
+    ],
+    doList: [
+      "✅ Portar un arma normal durante el acto delictivo para que el cateo sea válido.",
+      "✅ Usar el arma normal como parte del rol y no solo armamento VIP."
+    ],
+    dontList: [
+      "❌ Rolear un delito armado usando solamente armas VIP.",
+      "❌ Pretender ser cateado sin portar un arma normal."
+    ]
+  },
+  {
     id: "ilegal-atracos",
-    category: "Ilegales y Bandas",
+    category: "Ilegales",
     title: "Ilegales • 2. Atracos, Rehenes y Negociación",
     badge: "Atracos",
     badgeType: "warning",
@@ -436,7 +478,7 @@ export const ALL_RULES: RuleSectionItem[] = [
   },
   {
     id: "ilegal-secuestros",
-    category: "Ilegales y Bandas",
+    category: "Ilegales",
     title: "Ilegales • 3. Secuestros y Muertes (PKT / CK)",
     badge: "Extrema Gravedad",
     badgeType: "danger",
@@ -450,7 +492,7 @@ export const ALL_RULES: RuleSectionItem[] = [
   },
   {
     id: "ilegal-zonas-seguras",
-    category: "Ilegales y Bandas",
+    category: "Ilegales",
     title: "Ilegales • 4. Zonas Seguras y Anti-Campeo",
     badge: "Zonas Protegidas",
     badgeType: "danger",
@@ -462,7 +504,7 @@ export const ALL_RULES: RuleSectionItem[] = [
   },
   {
     id: "ilegal-staff",
-    category: "Ilegales y Bandas",
+    category: "Ilegales",
     title: "Ilegales • 5. Intervención y Normativa de Staff",
     badge: "Transparencia Total",
     badgeType: "info",
